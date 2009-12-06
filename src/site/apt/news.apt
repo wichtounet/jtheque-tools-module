@@ -1,5 +1,11 @@
 News
 
+* 06.12.2009 JTheque Tools Module 1.0.1
+
+    La version 1.0.1 du module est maintenant disponible. Rendez-vous sur la 
+    {{{download.html} section téléchargement}} pour le télécharger. Cette nouvelle version utilise maintenant
+    JTheque Core 2.0.2 et une structure des dossiers Maven 2. 
+    
 * 21.09.2009 JTheque Tools Module 1.0
 
     La version 1.0 du module est maintenant disponible. Rendez-vous sur la 

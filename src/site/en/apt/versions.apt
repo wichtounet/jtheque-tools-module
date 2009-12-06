@@ -2,8 +2,11 @@ Versions
 
 This document show you the different versions of JTheque Tools Module. 
 
-* 1.0.1-SNAPSHOT Current work version
+* 1.0.1 05.12.2009 Use of JTheque Core 2.0.2
 
+    * se of JTheque Core 2.0.2
+    * Maven 2 rules for folders
+    
 * 1.0 20.09.2009 Base version
 
     * Base version

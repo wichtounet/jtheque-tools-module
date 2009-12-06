@@ -17,7 +17,7 @@
     <packaging>jar</packaging>
     <name>JTheque Tools Module</name>
     <description>Module comprenant des "outils" pour JTheque Collections.</description>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
 
     <url>http://jtheque.developpez.com/collections/tools</url>
 
@@ -103,7 +103,7 @@
         <dependency>
             <groupId>org.jtheque</groupId>
             <artifactId>jtheque-core</artifactId>
-            <version>2.0.2-SNAPSHOT</version>
+            <version>2.0.2</version>
         </dependency>
     </dependencies>
 
