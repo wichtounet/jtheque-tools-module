@@ -16,7 +16,6 @@ package org.jtheque.collections.tools.services.impl.importer;
  * along with JTheque.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-import org.jtheque.collections.tools.services.able.IDatabaseService;
 import org.jtheque.core.managers.Managers;
 import org.jtheque.core.managers.beans.IBeansManager;
 import org.jtheque.core.managers.file.IFileManager;
@@ -24,7 +23,6 @@ import org.jtheque.core.managers.file.able.BackupReader;
 import org.jtheque.core.managers.file.able.FileType;
 import org.jtheque.utils.io.FileException;
 
-import javax.annotation.Resource;
 import java.sql.Connection;
 
 /**
@@ -35,9 +33,6 @@ import java.sql.Connection;
 final class SimpleDBImporter implements DBImporter {
     private Connection connection;
     private final FileType type;
-
-    @Resource
-    private IDatabaseService databaseService;
 
     /**
      * Construct a new <code>SimpleDBImporter</code>.

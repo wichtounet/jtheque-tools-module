@@ -26,7 +26,6 @@ import org.jtheque.core.utils.ui.PanelBuilder;
 import org.jtheque.core.utils.ui.ValidationUtils;
 import org.jtheque.utils.ui.GridBagUtils;
 
-import javax.annotation.PostConstruct;
 import javax.swing.Action;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -42,8 +41,8 @@ import java.util.Collection;
 public final class ImportFromDBView extends SwingDialogView implements IImportFromDBView {
     private static final long serialVersionUID = -7623407853629700329L;
 
-    private Action validateAction;
-    private Action cancelAction;
+    private final Action validateAction;
+    private final Action cancelAction;
 
     private JTextField fieldURL;
     private JTextField fieldLogin;
@@ -57,15 +56,21 @@ public final class ImportFromDBView extends SwingDialogView implements IImportFr
      * Construct a new JFrameImportFromDB.
      *
      * @param frame The parent frame.
+     * @param validateAction The action to validate the view. 
+     * @param cancelAction The action to cancel the view. 
      */
-    public ImportFromDBView(Frame frame) {
+    public ImportFromDBView(Frame frame, Action validateAction, Action cancelAction) {
         super(frame);
+        
+        this.validateAction = validateAction;
+        this.cancelAction = cancelAction;
+        
+        build();
     }
 
     /**
      * Build the view.
      */
-    @PostConstruct
     private void build() {
         setContentPane(buildContentPane());
         setResizable(false);
@@ -170,23 +175,5 @@ public final class ImportFromDBView extends SwingDialogView implements IImportFr
         ValidationUtils.rejectIfEmpty(getSelectedPassword(), "config.database.view.password", errors);
         ValidationUtils.rejectIfEmpty(getSelectedUrl(), "config.database.view.url", errors);
         ValidationUtils.rejectIfEmpty(getSelectedProtocol(), "config.database.view.protocol", errors);
-    }
-
-    /**
-     * Set the action to validate the view.
-     *
-     * @param validateAction The action to validate the view.
-     */
-    public void setValidateAction(Action validateAction) {
-        this.validateAction = validateAction;
-    }
-
-    /**
-     * Set the action to cancel the view.
-     *
-     * @param cancelAction The action to cancel the view.
-     */
-    public void setCancelAction(Action cancelAction) {
-        this.cancelAction = cancelAction;
     }
 }
