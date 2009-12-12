@@ -1,6 +1,10 @@
 Versions
 
-Ce document présente les différentes versions de JTheque Utils. 
+Ce document présente les différentes versions de JTheque Tools Module. 
+
+* 1.4.2 12.12.2009 Corrections de bugs
+
+    * Corrections des bugs de la 1.4.1
 
 * 1.0.1 05.12.2009 Passage à JTheque Core 2.0.2
 
