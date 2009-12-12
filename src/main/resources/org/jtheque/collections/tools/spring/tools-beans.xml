@@ -10,26 +10,15 @@
        default-lazy-init="true">
 
     <bean id="toolsModule" class="org.jtheque.collections.tools.ToolsModule" lazy-init="false"/>
-
-    <!-- Views -->
-
+    
     <jtheque:proxy id="importFromDBView" type="org.jtheque.collections.tools.view.impl.frame.ImportFromDBView"/>
 
     <bean id="_importFromDBView" class="org.jtheque.collections.tools.view.impl.frame.ImportFromDBView">
         <constructor-arg ref="_mainView"/>
-        <property name="cancelAction" ref="cancelImportFromDBViewAction"/>
-        <property name="validateAction" ref="validateImportFromDBViewAction"/>
     </bean>
-
-    <!-- Actions -->
-
-    <bean id="validateImportFromDBViewAction" class="org.jtheque.collections.tools.view.impl.actions.AcValidateImportFromDBView"/>
-
+    
     <jtheque:display id="importFromDBAction" key="jtheque.actions.from.db" view="importFromDBView"/>
-    <jtheque:close id="cancelImportFromDBViewAction" key="import.database.actions.cancel" view="importFromDBView"/>
-
-    <!-- Services -->
-
+    
     <bean id="databaseService" class="org.jtheque.collections.tools.services.impl.DatabaseService"/>
 
 </beans>

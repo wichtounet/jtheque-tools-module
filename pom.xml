@@ -17,7 +17,7 @@
     <packaging>jar</packaging>
     <name>JTheque Tools Module</name>
     <description>Module comprenant des "outils" pour JTheque Collections.</description>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
 
     <url>http://jtheque.developpez.com/collections/tools</url>
 

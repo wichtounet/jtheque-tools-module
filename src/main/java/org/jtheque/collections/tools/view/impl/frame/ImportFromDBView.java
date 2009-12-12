@@ -17,6 +17,8 @@ package org.jtheque.collections.tools.view.impl.frame;
  */
 
 import org.jtheque.collections.tools.view.able.IImportFromDBView;
+import org.jtheque.collections.tools.view.impl.actions.AcCloseImportFromDBView;
+import org.jtheque.collections.tools.view.impl.actions.AcValidateImportFromDBView;
 import org.jtheque.collections.tools.view.impl.models.AvailableDatabaseVersionsComboBoxModel;
 import org.jtheque.collections.tools.view.impl.models.AvailableProtocolsComboBoxModel;
 import org.jtheque.core.managers.error.JThequeError;
@@ -26,7 +28,6 @@ import org.jtheque.core.utils.ui.PanelBuilder;
 import org.jtheque.core.utils.ui.ValidationUtils;
 import org.jtheque.utils.ui.GridBagUtils;
 
-import javax.swing.Action;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import java.awt.Container;
@@ -40,10 +41,7 @@ import java.util.Collection;
  */
 public final class ImportFromDBView extends SwingDialogView implements IImportFromDBView {
     private static final long serialVersionUID = -7623407853629700329L;
-
-    private final Action validateAction;
-    private final Action cancelAction;
-
+    
     private JTextField fieldURL;
     private JTextField fieldLogin;
     private JPasswordField fieldPassword;
@@ -56,14 +54,9 @@ public final class ImportFromDBView extends SwingDialogView implements IImportFr
      * Construct a new JFrameImportFromDB.
      *
      * @param frame The parent frame.
-     * @param validateAction The action to validate the view. 
-     * @param cancelAction The action to cancel the view. 
      */
-    public ImportFromDBView(Frame frame, Action validateAction, Action cancelAction) {
+    public ImportFromDBView(Frame frame) {
         super(frame);
-        
-        this.validateAction = validateAction;
-        this.cancelAction = cancelAction;
         
         build();
     }
@@ -96,7 +89,8 @@ public final class ImportFromDBView extends SwingDialogView implements IImportFr
 
         addDatabaseInfosPanel(builder);
 
-        builder.addButtonBar(builder.gbcSet(0, 2, GridBagUtils.NONE, GridBagUtils.BASELINE_LEADING, 2, 1), validateAction, cancelAction);
+        builder.addButtonBar(builder.gbcSet(0, 2, GridBagUtils.NONE, GridBagUtils.BASELINE_LEADING, 2, 1), 
+                new AcValidateImportFromDBView(), new AcCloseImportFromDBView());
 
         return builder.getPanel();
     }

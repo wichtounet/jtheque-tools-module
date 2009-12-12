@@ -20,12 +20,12 @@ import org.jtheque.collections.tools.services.able.IDatabaseService;
 import org.jtheque.collections.tools.utils.DatabaseConnectionInfos;
 import org.jtheque.collections.tools.view.able.IImportFromDBView;
 import org.jtheque.core.managers.Managers;
+import org.jtheque.core.managers.beans.IBeansManager;
 import org.jtheque.core.managers.error.IErrorManager;
 import org.jtheque.core.managers.error.InternationalizedError;
 import org.jtheque.core.managers.log.ILoggingManager;
 import org.jtheque.core.managers.view.impl.actions.JThequeAction;
 
-import javax.annotation.Resource;
 import java.awt.event.ActionEvent;
 
 /**
@@ -34,14 +34,6 @@ import java.awt.event.ActionEvent;
  * @author Baptiste Wicht
  */
 public final class AcValidateImportFromDBView extends JThequeAction {
-    private static final long serialVersionUID = 5974024945309214485L;
-
-    @Resource
-    private IImportFromDBView importFromDBView;
-
-    @Resource
-    private IDatabaseService databaseService;
-
     /**
      * Construct a new AcValidateImportFromDBView with a specific key.
      */
@@ -51,6 +43,9 @@ public final class AcValidateImportFromDBView extends JThequeAction {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        IDatabaseService databaseService = Managers.getManager(IBeansManager.class).getBean("databaseService");
+        IImportFromDBView importFromDBView = Managers.getManager(IBeansManager.class).getBean("importFromDBView");
+        
         DatabaseConnectionInfos infos = new DatabaseConnectionInfos();
 
         infos.setPassword(importFromDBView.getSelectedPassword());

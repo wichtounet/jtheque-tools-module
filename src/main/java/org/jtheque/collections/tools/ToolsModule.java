@@ -32,7 +32,7 @@ import org.jtheque.core.managers.resource.IResourceManager;
  * @author Baptiste Wicht
  */
 @Module(id = "jtheque-tools-module", i18n = "classpath:org/jtheque/collections/tools/i18n/tools",
-        version = "1.0.1-SNAPSHOT", core = "2.0.2", jarFile = "jtheque-tools-module-1.0.1-SNAPSHOT.jar",
+        version = "1.0.2", core = "2.0.2", jarFile = "jtheque-tools-module-1.0.2.jar",
         updateURL = "http://jtheque.developpez.com/public/versions/ToolsModule.versions")
 public final class ToolsModule {
     private Feature importFromDBFeature;
