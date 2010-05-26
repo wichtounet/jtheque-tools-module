@@ -16,12 +16,12 @@ package org.jtheque.collections.tools.view.impl.frame;
  * along with JTheque.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+import org.jtheque.collections.tools.services.able.IDatabaseService;
 import org.jtheque.collections.tools.view.able.IImportFromDBView;
 import org.jtheque.collections.tools.view.impl.actions.AcCloseImportFromDBView;
 import org.jtheque.collections.tools.view.impl.actions.AcValidateImportFromDBView;
-import org.jtheque.collections.tools.view.impl.models.AvailableDatabaseVersionsComboBoxModel;
-import org.jtheque.collections.tools.view.impl.models.AvailableProtocolsComboBoxModel;
 import org.jtheque.core.managers.error.JThequeError;
+import org.jtheque.core.managers.view.impl.components.model.SimpleComboBoxModel;
 import org.jtheque.core.managers.view.impl.frame.abstraction.SwingDialogView;
 import org.jtheque.core.utils.ui.Borders;
 import org.jtheque.core.utils.ui.PanelBuilder;
@@ -45,8 +45,8 @@ public final class ImportFromDBView extends SwingDialogView implements IImportFr
     private JTextField fieldURL;
     private JTextField fieldLogin;
     private JPasswordField fieldPassword;
-    private AvailableProtocolsComboBoxModel modelProtocols;
-    private AvailableDatabaseVersionsComboBoxModel modelVersions;
+    private SimpleComboBoxModel<String> modelProtocols;
+    private SimpleComboBoxModel<String> modelVersions;
 
     private static final int DEFAULT_COLUMNS = 15;
 
@@ -83,7 +83,7 @@ public final class ImportFromDBView extends SwingDialogView implements IImportFr
 
         builder.addI18nLabel("import.database.view.versions", builder.gbcSet(0, 0));
 
-        modelVersions = new AvailableDatabaseVersionsComboBoxModel();
+        modelVersions = new SimpleComboBoxModel<String>(<IDatabaseService>getBean("databaseService").getAvailableDatabaseVersions());
 
         builder.addComboBox(modelVersions, builder.gbcSet(1, 0, GridBagUtils.HORIZONTAL));
 
@@ -129,7 +129,7 @@ public final class ImportFromDBView extends SwingDialogView implements IImportFr
      * @param builder The panel builder.
      */
     private void addFields(PanelBuilder builder) {
-        modelProtocols = new AvailableProtocolsComboBoxModel();
+        modelProtocols = new SimpleComboBoxModel<String>(<IDatabaseService>getBean("databaseService").getAvailableDatabases());
         builder.addComboBox(modelProtocols, builder.gbcSet(1, 0, GridBagUtils.HORIZONTAL));
 
         fieldURL = builder.add(new JTextField(DEFAULT_COLUMNS), builder.gbcSet(1, 1));
@@ -139,7 +139,7 @@ public final class ImportFromDBView extends SwingDialogView implements IImportFr
 
     @Override
     public String getSelectedVersion() {
-        return modelVersions.getSelectedVersion();
+        return modelVersions.getSelectedItem();
     }
 
     @Override
@@ -159,7 +159,7 @@ public final class ImportFromDBView extends SwingDialogView implements IImportFr
 
     @Override
     public String getSelectedProtocol() {
-        return modelProtocols.getSelectedProtocol();
+        return modelProtocols.getSelectedItem();
     }
 
     @Override
