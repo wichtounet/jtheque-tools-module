@@ -40,6 +40,7 @@ public interface Database {
      * Return the complete URL of the database.
      *
      * @param databaseName The short url to the database
+     *
      * @return The connexion's URL
      */
     String getUrl(String databaseName);

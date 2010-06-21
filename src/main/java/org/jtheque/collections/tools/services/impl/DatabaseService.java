@@ -66,6 +66,7 @@ public final class DatabaseService implements IDatabaseService {
      * Open the connection.
      *
      * @param infos The informations for connection.
+     *
      * @throws DatabaseException If an error occurs during the connection opening.
      */
     private void openConnectionForImport(DatabaseConnectionInfos infos) throws DatabaseException {

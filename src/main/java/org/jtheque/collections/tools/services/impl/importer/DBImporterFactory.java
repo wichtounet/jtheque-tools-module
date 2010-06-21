@@ -47,6 +47,7 @@ public final class DBImporterFactory {
      * Return the importer for the specified database.
      *
      * @param database The searched database.
+     *
      * @return the importer.
      */
     public static DBImporter getImporter(String database) {

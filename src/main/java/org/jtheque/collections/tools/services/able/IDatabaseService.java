@@ -43,6 +43,7 @@ public interface IDatabaseService {
      *
      * @param dbVersion  The version of the other database.
      * @param connection The informations to connect to the other database.
+     *
      * @throws Exception When an errors occurs during the database operations.
      */
     void importData(String dbVersion, DatabaseConnectionInfos connection) throws Exception;

@@ -45,7 +45,7 @@ public final class AcValidateImportFromDBView extends JThequeAction {
     public void actionPerformed(ActionEvent e) {
         IDatabaseService databaseService = Managers.getManager(IBeansManager.class).getBean("databaseService");
         IImportFromDBView importFromDBView = Managers.getManager(IBeansManager.class).getBean("importFromDBView");
-        
+
         DatabaseConnectionInfos infos = new DatabaseConnectionInfos();
 
         infos.setPassword(importFromDBView.getSelectedPassword());

@@ -10,15 +10,15 @@
        default-lazy-init="true">
 
     <bean id="toolsModule" class="org.jtheque.collections.tools.ToolsModule" lazy-init="false"/>
-    
+
     <jtheque:proxy id="importFromDBView" type="org.jtheque.collections.tools.view.impl.frame.ImportFromDBView"/>
 
     <bean id="_importFromDBView" class="org.jtheque.collections.tools.view.impl.frame.ImportFromDBView">
         <constructor-arg ref="_mainView"/>
     </bean>
-    
+
     <jtheque:display id="importFromDBAction" key="jtheque.actions.from.db" view="importFromDBView"/>
-    
+
     <bean id="databaseService" class="org.jtheque.collections.tools.services.impl.DatabaseService"/>
 
 </beans>

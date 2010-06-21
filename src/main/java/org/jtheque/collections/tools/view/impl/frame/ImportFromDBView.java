@@ -30,6 +30,7 @@ import org.jtheque.utils.ui.GridBagUtils;
 
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
 import java.awt.Container;
 import java.awt.Frame;
 import java.util.Collection;
@@ -41,7 +42,7 @@ import java.util.Collection;
  */
 public final class ImportFromDBView extends SwingDialogView implements IImportFromDBView {
     private static final long serialVersionUID = -7623407853629700329L;
-    
+
     private JTextField fieldURL;
     private JTextField fieldLogin;
     private JPasswordField fieldPassword;
@@ -57,7 +58,7 @@ public final class ImportFromDBView extends SwingDialogView implements IImportFr
      */
     public ImportFromDBView(Frame frame) {
         super(frame);
-        
+
         build();
     }
 
@@ -83,13 +84,14 @@ public final class ImportFromDBView extends SwingDialogView implements IImportFr
 
         builder.addI18nLabel("import.database.view.versions", builder.gbcSet(0, 0));
 
-        modelVersions = new SimpleComboBoxModel<String>(<IDatabaseService>getBean("databaseService").getAvailableDatabaseVersions());
+        modelVersions = new SimpleComboBoxModel<String>( < IDatabaseService > getBean("databaseService").getAvailableDatabaseVersions())
+        ;
 
         builder.addComboBox(modelVersions, builder.gbcSet(1, 0, GridBagUtils.HORIZONTAL));
 
         addDatabaseInfosPanel(builder);
 
-        builder.addButtonBar(builder.gbcSet(0, 2, GridBagUtils.NONE, GridBagUtils.BASELINE_LEADING, 2, 1), 
+        builder.addButtonBar(builder.gbcSet(0, 2, GridBagUtils.NONE, GridBagUtils.BASELINE_LEADING, 2, 1),
                 new AcValidateImportFromDBView(), new AcCloseImportFromDBView());
 
         return builder.getPanel();
@@ -129,7 +131,8 @@ public final class ImportFromDBView extends SwingDialogView implements IImportFr
      * @param builder The panel builder.
      */
     private void addFields(PanelBuilder builder) {
-        modelProtocols = new SimpleComboBoxModel<String>(<IDatabaseService>getBean("databaseService").getAvailableDatabases());
+        modelProtocols = new SimpleComboBoxModel<String>( < IDatabaseService > getBean("databaseService").getAvailableDatabases())
+        ;
         builder.addComboBox(modelProtocols, builder.gbcSet(1, 0, GridBagUtils.HORIZONTAL));
 
         fieldURL = builder.add(new JTextField(DEFAULT_COLUMNS), builder.gbcSet(1, 1));
